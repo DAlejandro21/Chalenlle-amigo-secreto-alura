@@ -16,6 +16,7 @@ function agregarAmigo(){
         console.log(amigos);
     }
     limpiarCaja();
+    actualizarAmigos();
 }
 
 //Funcion para vaciar la cada una vez se elija 'anadir'
@@ -23,5 +24,16 @@ function limpiarCaja(){
     document.querySelector('#amigo').value="";
 }
 
-agregarAmigo();
+function actualizarAmigos(){
+    //Obtiene el lemento de la lista
+    let lista = document.getElementById("listaAmigos");
+    //Vacia la lista <ul>
+    lista.innerHTML = ''
+    //Recorre el array amigos y agrega nuevo elemento a la lista
+    for(let posisionIndice = 0 ; posisionIndice < amigos.length ; posisionIndice++){
+        lista.innerHTML += `<li>${amigos[posisionIndice]}</li>`;
+    }
+}
+
+
 
